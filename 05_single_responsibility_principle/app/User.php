@@ -4,7 +4,7 @@ class User
 {
     private $email; // set properti email ke private
     private $password; // set properti password ke private
-    const MINCHARS = 8; // set class constant
+    // const MINCHARS = 8; // hapus baris ini
 
     public function login()
     {
@@ -18,13 +18,18 @@ class User
 
     public function setPassword($string)
     {
-        // self digunakan untuk memanggil/refer constant yang ada dalam class itu sendiri
-        if($this->validatePassword($string) == false){
-            throw new Exception("Minimal karakter password adalah " . self::MINCHARS);
-        }
+        /**
+         * code ini kita hapus karena kita sudah membuat Class Validator tersendiri , sengaja disini di komen agar tahu perbedaanya
+         */
+        // if($this->validatePassword($string) == false){
+        //     throw new Exception("Minimal karakter password adalah " . self::MINCHARS);
+        // }
 
         // $this digunakan untuk mereferensi properti atau method dalam class itu sendiri
-        $this->password = hash('sha256', $string);
+        // $this->password = hash('sha256', $string);
+        $this->password = $string;
+        // menambahkan return $this agar kita bisa menggunakan method chaining
+        return $this;
     }
 
     // method ini digunakan untuk mengakses properti password yang visibilitynya private
@@ -35,11 +40,16 @@ class User
 
     public function setEmail($string)
     {
-        if(! filter_var($string, FILTER_VALIDATE_EMAIL)){
-            throw new Exception("Gunakan email yang valid");
-        }
+        /**
+         * code ini kita hapus karena kita sudah membuat Class Validator tersendiri , sengaja disini di komen agar tahu perbedaanya
+         */
+        // if(! filter_var($string, FILTER_VALIDATE_EMAIL)){
+        //     throw new Exception("Gunakan email yang valid");
+        // }
 
         $this->email = $string;
+        // menambahkan return $this agar kita bisa menggunakan method chaining
+        return $this;
     }
 
     public function getEmail()
@@ -47,8 +57,14 @@ class User
         return $this->email;
     }
 
-    private function validatePassword($string)
-    {
-        return strlen($string) < self::MINCHARS ? false : true;
-    }
+    /**
+     * [validatePassword description]
+     * code ini kita hapus karena kita sudah membuat Class Validator tersendiri , sengaja disini di komen agar tahu perbedaanya
+     * @param  [type] $string [description]
+     * @return [type]         [description]
+     */
+    // private function validatePassword($string)
+    // {
+    //     return strlen($string) < self::MINCHARS ? false : true;
+    // }
 }
