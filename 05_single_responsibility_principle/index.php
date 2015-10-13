@@ -1,7 +1,10 @@
 <?php
 
 /**
- * dalam bagian sebelumnya kita melakukan validasi terhadap data dengan hardcode class user, di bagian kali ini kita akan memisahkan validasi ke dalam class tersendiri, sehingga ketika kita ingin menggunakan validasi lagi kita tidak perlu hardcode lagi, kemudian kita buat class Helper
+ * dalam bagian sebelumnya kita melakukan validasi terhadap data dengan hardcode class user
+ * di bagian kali ini kita akan memisahkan validasi ke dalam class tersendiri
+ * sehingga ketika kita ingin menggunakan validasi lagi kita tidak perlu hardcode lagi
+ * kemudian kita buat file Helper
  */
 
 require 'app/User.php';
