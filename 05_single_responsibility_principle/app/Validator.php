@@ -9,37 +9,34 @@ class Validator
         $valid = true;
 
         foreach ($rules as $item => $ruleset) {
-
             $ruleset = explode('|', $ruleset);
 
             foreach ($ruleset as $rule) {
-
                 $pos = strpos($rule, ':');
-                if($pos != false){
+                if ($pos != false) {
                     $parameter = substr($rule, $pos + 1);
                     $rule = substr($rule, 0, $pos);
-                }
-                else{
+                } else {
                     $parameter = '';
                 }
 
                 /**
                  * [$methodName description]
-                 * variable methodName akan memiliki value validateRule misal rulenya email = validateEmail
+                 * variable methodName akan memiliki value validateRule misal rulenya email = validateEmail.
                  */
-                $methodName = 'validate' . ucfirst($rule);
+                $methodName = 'validate'.ucfirst($rule);
 
                 /**
                  * [$value description]
-                 * variable value kita set value datanya dari $data[$item] jika memang ada, jika tidak ada maka default valuenya = NULL
+                 * variable value kita set value datanya dari $data[$item] jika memang ada, jika tidak ada maka default valuenya = NULL.
                  */
-                $value = isset($data[$item]) ? $data[$item] : NULL;
+                $value = isset($data[$item]) ? $data[$item] : null;
 
-                /**
+                /*
                  * fungsi untuk mengecek apakah method yang kita definisikan itu ada dalam Class ini, jika ada
                  */
-                if(method_exists($this, $methodName)){
-                    $this->$methodName($item, $value, $parameter) OR $valid = false;
+                if (method_exists($this, $methodName)) {
+                    $this->$methodName($item, $value, $parameter) or $valid = false;
                 }
             }
         }
@@ -49,7 +46,7 @@ class Validator
 
     /**
      * [getErrors description]
-     * method untuk menampilkan errors validation
+     * method untuk menampilkan errors validation.
      */
     public function getErrors()
     {
@@ -58,16 +55,19 @@ class Validator
 
     /**
      * [validateRequired description]
-     * Method untuk validasi required field
-     * @param  [type] $item      [description]
-     * @param  [type] $value     [description]
-     * @param  [type] $parameter [description]
-     * @return [boolean]            [description]
+     * Method untuk validasi required field.
+     *
+     * @param [type] $item      [description]
+     * @param [type] $value     [description]
+     * @param [type] $parameter [description]
+     *
+     * @return [boolean] [description]
      */
     private function validateRequired($item, $value, $parameter)
     {
-        if($value === '' || $value === NULL){
-            $this->errors[$item][] = 'The ' . $item . ' field is required';
+        if ($value === '' || $value === null) {
+            $this->errors[$item][] = 'The '.$item.' field is required';
+
             return false;
         }
 
@@ -76,16 +76,19 @@ class Validator
 
     /**
      * [validateEmail description]
-     * Method untuk mengecek validasi email valid
-     * @param  [type] $item      [description]
-     * @param  [type] $value     [description]
-     * @param  [type] $parameter [description]
-     * @return [boolean]            [description]
+     * Method untuk mengecek validasi email valid.
+     *
+     * @param [type] $item      [description]
+     * @param [type] $value     [description]
+     * @param [type] $parameter [description]
+     *
+     * @return [boolean] [description]
      */
     private function validateEmail($item, $value, $parameter)
     {
-        if(! filter_var($value, FILTER_VALIDATE_EMAIL)){
-            $this->errors[$item][] = 'The ' . $item . ' field should be a valid email address';
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            $this->errors[$item][] = 'The '.$item.' field should be a valid email address';
+
             return false;
         }
 
@@ -94,16 +97,19 @@ class Validator
 
     /**
      * [validateMin description]
-     * Method untuk mengecek Minimum character dari sebuah field
-     * @param  [type] $item      [description]
-     * @param  [type] $value     [description]
-     * @param  [type] $parameter [description]
-     * @return [boolean]            [description]
+     * Method untuk mengecek Minimum character dari sebuah field.
+     *
+     * @param [type] $item      [description]
+     * @param [type] $value     [description]
+     * @param [type] $parameter [description]
+     *
+     * @return [boolean] [description]
      */
     private function validateMin($item, $value, $parameter)
     {
-         if(strlen($value) >= $parameter == false){
-            $this->errors[$item][] = 'The ' . $item . ' field should have a minimum lenght of ' .$parameter;
+        if (strlen($value) >= $parameter == false) {
+            $this->errors[$item][] = 'The '.$item.' field should have a minimum lenght of '.$parameter;
+
             return false;
         }
 
