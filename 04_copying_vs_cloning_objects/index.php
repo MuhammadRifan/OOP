@@ -15,7 +15,7 @@ $bowo = clone $budi; // clone object budi ke bowo
 $bowo->setEmail('bowo@email.com');
 
 var_dump($budi); // dumping data object budi
-echo "<br/>";
+echo '<br/>';
 var_dump($andri); // dumping data object andri
-echo "<br/>";
+echo '<br/>';
 var_dump($bowo); // dumping data object bowo

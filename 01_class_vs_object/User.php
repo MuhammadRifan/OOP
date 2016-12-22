@@ -7,11 +7,11 @@ class User
 
     public function login()
     {
-        return "logging in ..";
+        return 'logging in ..';
     }
 
     public function logout()
     {
-        return "logging out ...";
+        return 'logging out ...';
     }
 }

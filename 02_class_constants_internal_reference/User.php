@@ -8,23 +8,22 @@ class User
 
     public function login()
     {
-        return "logging in ..";
+        return 'logging in ..';
     }
 
     public function logout()
     {
-        return "logging out ...";
+        return 'logging out ...';
     }
 
     public function setPassword($string)
     {
         //self digunakan untuk memanggil/refer constant yang ada dalam
-        if(strlen($string) < self::MINCHARS){
-            throw new Exception("Minimal karakter password adalah " . self::MINCHARS);
+        if (strlen($string) < self::MINCHARS) {
+            throw new Exception('Minimal karakter password adalah '.self::MINCHARS);
         }
 
         // $this digunakan untuk mereferensi properti atau method dalam class itu sendiri
         $this->password = hash('sha256', $string);
     }
-
 }

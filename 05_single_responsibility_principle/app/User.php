@@ -8,17 +8,17 @@ class User
 
     public function login()
     {
-        return "logging in ..";
+        return 'logging in ..';
     }
 
     public function logout()
     {
-        return "logging out ...";
+        return 'logging out ...';
     }
 
     public function setPassword($string)
     {
-        /**
+        /*
          * code ini kita hapus karena kita sudah membuat Class Validator tersendiri , sengaja disini di komen agar tahu perbedaanya
          */
         // if($this->validatePassword($string) == false){
@@ -40,7 +40,7 @@ class User
 
     public function setEmail($string)
     {
-        /**
+        /*
          * code ini kita hapus karena kita sudah membuat Class Validator tersendiri , sengaja disini di komen agar tahu perbedaanya
          */
         // if(! filter_var($string, FILTER_VALIDATE_EMAIL)){
@@ -57,7 +57,7 @@ class User
         return $this->email;
     }
 
-    /**
+    /*
      * [validatePassword description]
      * code ini kita hapus karena kita sudah membuat Class Validator tersendiri , sengaja disini di komen agar tahu perbedaanya
      * @param  [type] $string [description]

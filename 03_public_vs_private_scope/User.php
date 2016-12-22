@@ -8,19 +8,19 @@ class User
 
     public function login()
     {
-        return "logging in ..";
+        return 'logging in ..';
     }
 
     public function logout()
     {
-        return "logging out ...";
+        return 'logging out ...';
     }
 
     public function setPassword($string)
     {
         // self digunakan untuk memanggil/refer constant yang ada dalam class itu sendiri
-        if($this->validatePassword($string) == false){
-            throw new Exception("Minimal karakter password adalah " . self::MINCHARS);
+        if ($this->validatePassword($string) == false) {
+            throw new Exception('Minimal karakter password adalah '.self::MINCHARS);
         }
 
         // $this digunakan untuk mereferensi properti atau method dalam class itu sendiri
@@ -35,8 +35,8 @@ class User
 
     public function setEmail($string)
     {
-        if(! filter_var($string, FILTER_VALIDATE_EMAIL)){
-            throw new Exception("Gunakan email yang valid");
+        if (!filter_var($string, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('Gunakan email yang valid');
         }
 
         $this->email = $string;
