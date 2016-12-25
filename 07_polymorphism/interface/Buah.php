@@ -17,7 +17,6 @@
  */
 interface Buah
 {
-
     /* Method ini dipergunakan untuk mengambil warna buah */
-    public function ambilWarna(); 
+    public function ambilWarna();
 }

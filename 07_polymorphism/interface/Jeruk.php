@@ -9,9 +9,12 @@ require 'Buah.php';
 
 class Jeruk implements Buah
 {
+    /* Jika method ini tidak di deklarasikan ulang,
+     * maka akan muncul error
+     */
 
+    public function ambilWarna()
+    {
+        echo 'Warna Jeruk adalah Orange';
+    }
 }
-
-
-$jeruk = new Jeruk();
-var_dump($jeruk->ambilWarna());
